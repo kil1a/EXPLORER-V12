@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="WpfApp1.UCCreateFolderDialogWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="250">
+    <Grid x:Name="CreateFolderWindowGrid">
+        <Canvas x:Name="CreateFolderWindowCanvas" Margin="0,0,0,0" Visibility="Visible" Height="100" Width="250">
+            <Border BorderBrush="Black" BorderThickness="1" Height="100" Width="250">
+                <Label Content="Введите название новой папки" Canvas.Top="74" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold"/>
+            </Border>
+            <TextBox x:Name="NewFolderName" Text="" HorizontalAlignment="Left" VerticalAlignment="Center" Width="246" Canvas.Top="32" Canvas.Left="2"></TextBox>
+            <Label Content="ОТМЕНА" MouseLeftButtonDown="Cancel" Canvas.Top="74"/>
+            <Label Content="СОЗДАТЬ" Canvas.Left="188" Canvas.Top="74" HorizontalAlignment="Left" VerticalAlignment="Center" MouseLeftButtonDown="CreateNewFolder"/>
+        </Canvas>
+    </Grid>
+</UserControl>

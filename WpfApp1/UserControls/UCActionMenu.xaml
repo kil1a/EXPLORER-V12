@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WpfApp1.UCActionMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="200">
+    <Grid>
+        <Canvas Panel.ZIndex="5" x:Name="ActionMenu" Visibility="Visible" Background="#16092c" Height="200" Width="200" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border BorderBrush="Black" BorderThickness="1" Height="200" Width="200"/>
+            <Label x:Name="CreateFolder" Content="СОЗДАТЬ ПАПКУ" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="20" Canvas.Top="10" MouseLeftButtonDown="ShowCreateFolderDialogWindow"/>
+            <Label x:Name="CreateFile" Content="СОЗДАТЬ ФАЙЛ" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="20" Canvas.Top="47" MouseLeftButtonDown="ShowCreateFileDialogWindow"/>
+            <Label x:Name="Delete" Content="УДАЛИТЬ" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="20" Canvas.Top="81"/>
+        </Canvas>
+
+        <local:UCCreateFileDialogWindow x:Name="CreateFileDialog" Visibility="Collapsed"/>
+        <local:UCCreateFolderDialogWindow x:Name="CreateFolderDialog" Visibility="Collapsed"/>
+    </Grid>
+</UserControl>

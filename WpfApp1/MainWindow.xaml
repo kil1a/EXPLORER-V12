@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfApp1"               
+        ResizeMode="NoResize"
+        Title="Explorer" Height="600" Width="950" WindowStyle="None">
+    <Grid x:Name="grid" >
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\student.TOP\Desktop\images\Background.jpg"/>
+        </Grid.Background>
+
+        <Canvas MouseLeftButtonDown="MoveWindow" Height="30" VerticalAlignment="Top">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+            <Label HorizontalContentAlignment="Right" Content="Explorer" Canvas.Left="1" Foreground="White" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="-4" MouseLeftButtonDown="MinimizeWindow"/>
+            <Label HorizontalContentAlignment="Right" Content="_" Canvas.Right="50" Foreground="White" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="-6" MouseLeftButtonDown="MinimizeWindow"/>
+            <Image Source="C:\Users\79650\Desktop\пак для проводника\Maximized.png" Canvas.Right="25" Canvas.Top="5" HorizontalAlignment="Left" VerticalAlignment="Center" Height="20" Width="20" MouseLeftButtonDown="MaximizedWindow"/>
+            <Label Content="X" Canvas.Right="0" Foreground="White" FontSize="20" Canvas.Top="-4" MouseLeftButtonDown="CloseWindow" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Menu HorizontalContentAlignment="Center" Foreground="White" Height="20" VerticalAlignment="Center" Canvas.Left="155" Canvas.Top="5" HorizontalAlignment="Left">
+                <Menu.Background>
+                    <SolidColorBrush Color="Black" />
+                </Menu.Background>
+                <MenuItem Header="File">
+                    <Label x:Name="CreateFolder" Content="СОЗДАТЬ ПАПКУ" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" MouseLeftButtonDown="ShowCreateFolderDialogWindow"/>
+                    <Label x:Name="CreateFile" Content="СОЗДАТЬ ФАЙЛ" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" MouseLeftButtonDown="ShowCreateFileDialogWindow"/>
+                    <Label x:Name="Delete" Content="УДАЛИТЬ" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" MouseLeftButtonDown="ChekBoxVisible"/>
+                    <Label x:Name="DownloadImagee" Content="Скачать картинку" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" MouseLeftButtonDown="DownloadImage"/>
+                </MenuItem>
+            </Menu>
+        </Canvas>
+
+        <Label x:Name="ParentDirectory" Content="Назад" HorizontalAlignment="Right" FontSize="20" Foreground="White" MouseLeftButtonDown="GoToParentDirectory" Visibility="Visible" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Margin="0,562,0,1"/>
+        <Label x:Name="DeleteLabel" Content="Удалить" HorizontalAlignment="Left" FontSize="20" Foreground="White" MouseLeftButtonDown="DeleteFunc" Visibility="Visible" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Margin="0,562,60,1"/>
+
+        <WrapPanel Margin="0,30,0,0" x:Name="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top">
+        </WrapPanel>
+
+        <WrapPanel Margin="0,30,0,0" x:Name="FavoriteWrap" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed">
+        </WrapPanel>
+
+        <local:UCCreateFileDialogWindow Visibility="Collapsed" x:Name="CreateFileDialog" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <local:UCCreateFolderDialogWindow Visibility="Collapsed" x:Name="CreateFolderDialog" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <local:UCDownloadImage Visibility="Collapsed" x:Name="DownloadImageDialog" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        
+    </Grid>
+</Window>
